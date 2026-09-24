@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML & CSS Documentation</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2d;
+      --panel-2: #18233b;
+      --text: #e8eefc;
+      --muted: #aab7d4;
+      --accent: #7dd3fc;
+      --accent-2: #a78bfa;
+      --border: #2b3958;
+      --code: #0a0f1c;
+      --good: #86efac;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    header {
+      padding: 56px 24px;
+      background: linear-gradient(135deg, #111a33, #172554);
+      border-bottom: 1px solid var(--border);
+    }
+    header .wrap, main, footer { max-width: 1100px; margin: auto; }
+    h1 { font-size: clamp(2.2rem, 6vw, 4rem); margin: 0 0 12px; }
+    h2 { margin-top: 0; color: var(--accent); }
+    h3 { color: #c4b5fd; }
+    p { color: var(--muted); }
+    a { color: var(--accent); }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11,16,32,.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .nav-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 10px 24px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+    nav a {
+      white-space: nowrap;
+      text-decoration: none;
+      padding: 7px 11px;
+      border-radius: 8px;
+    }
+    nav a:hover { background: var(--panel-2); }
+    main { padding: 36px 24px; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      scroll-margin-top: 70px;
+    }
+    code {
+      background: var(--code);
+      padding: 2px 6px;
+      border-radius: 5px;
+      color: #bae6fd;
+    }
+    pre {
+      overflow-x: auto;
+      background: var(--code);
+      border: 1px solid var(--border);
+      padding: 18px;
+      border-radius: 10px;
+      color: #dbeafe;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .tip {
+      border-left: 4px solid var(--good);
+      padding: 10px 16px;
+      background: rgba(134,239,172,.06);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--panel-2); }
+    .demo {
+      background: white;
+      color: #111827;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 12px;
+    }
+    footer {
+      padding: 20px 24px 50px;
+      color: var(--muted);
+      text-align: center;
+    }
+    @media (max-width: 650px) {
+      section { padding: 20px; }
+      main { padding: 20px 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <h1>HTML & CSS Documentation</h1>
+      <p>A beginner-friendly guide to building web pages with HTML and styling them with CSS.</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#start">Start</a>
+      <a href="#html">HTML</a>
+      <a href="#text">Text</a>
+      <a href="#links">Links & Images</a>
+      <a href="#forms">Forms</a>
+      <a href="#css">CSS</a>
+      <a href="#layout">Layout</a>
+      <a href="#responsive">Responsive</a>
+      <a href="#practice">Practice</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="start">
+      <h2>1. Start Here</h2>
+      <p>HTML describes the structure and meaning of a web page. CSS controls its appearance and layout.</p>
+      <div class="grid">
+        <div class="card"><h3>HTML</h3><p>Think of HTML as the skeleton and content of the page.</p></div>
+        <div class="card"><h3>CSS</h3><p>Think of CSS as the visual design: colors, spacing, typography, and layout.</p></div>
+        <div class="card"><h3>Browser</h3><p>The browser reads HTML and CSS and renders the result on screen.</p></div>
+      </div>
+
+      <h3>Your first HTML file</h3>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, world!&lt;/h1&gt;
+  &lt;p&gt;My first web page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <div class="tip"><strong>Tip:</strong> Save the file with a <code>.html</code> extension, then open it in a browser.</div>
+    </section>
+
+    <section id="html">
+      <h2>2. HTML Fundamentals</h2>
+      <p>HTML uses elements, usually written with an opening tag, content, and a closing tag.</p>
+      <pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+
+      <h3>Common elements</h3>
+      <table>
+        <tr><th>Element</th><th>Purpose</th></tr>
+        <tr><td><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></td><td>Headings, from most important to least important.</td></tr>
+        <tr><td><code>&lt;p&gt;</code></td><td>Paragraph.</td></tr>
+        <tr><td><code>&lt;div&gt;</code></td><td>Generic block container.</td></tr>
+        <tr><td><code>&lt;span&gt;</code></td><td>Generic inline container.</td></tr>
+        <tr><td><code>&lt;strong&gt;</code></td><td>Strong importance.</td></tr>
+        <tr><td><code>&lt;em&gt;</code></td><td>Emphasis.</td></tr>
+        <tr><td><code>&lt;br&gt;</code></td><td>Line break.</td></tr>
+      </table>
+
+      <h3>Attributes</h3>
+      <p>Attributes add information or behavior to an element.</p>
+      <pre><code>&lt;p class="intro"&gt;Hello!&lt;/p&gt;
+&lt;img src="photo.jpg" alt="A mountain"&gt;</code></pre>
+      <p>Here, <code>class</code>, <code>src</code>, and <code>alt</code> are attributes.</p>
+
+      <h3>Semantic HTML</h3>
+      <p>Semantic elements communicate what a section means instead of simply acting as generic containers.</p>
+      <pre><code>&lt;header&gt;Site header&lt;/header&gt;
+&lt;nav&gt;Navigation&lt;/nav&gt;
+&lt;main&gt;Main content&lt;/main&gt;
+&lt;article&gt;An article&lt;/article&gt;
+&lt;section&gt;A section&lt;/section&gt;
+&lt;footer&gt;Footer&lt;/footer&gt;</code></pre>
+    </section>
+
+    <section id="text">
+      <h2>3. Text, Lists, and Tables</h2>
+
+      <h3>Lists</h3>
+      <pre><code>&lt;ul&gt;
+  &lt;li&gt;Apple&lt;/li&gt;
+  &lt;li&gt;Banana&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open the editor&lt;/li&gt;
+  &lt;li&gt;Write HTML&lt;/li&gt;
+  &lt;li&gt;Open it in a browser&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+      <h3>Tables</h3>
+      <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Alex&lt;/td&gt;
+    &lt;td&gt;18&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+    </section>
+
+    <section id="links">
+      <h2>4. Links and Images</h2>
+
+      <h3>Links</h3>
+      <pre><code>&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;</code></pre>
+
+      <h3>Images</h3>
+      <pre><code>&lt;img src="cat.jpg" alt="A sleeping cat"&gt;</code></pre>
+      <p>The <code>alt</code> attribute provides a text alternative for people who cannot see the image and for cases where the image cannot load.</p>
+
+      <h3>Audio and video</h3>
+      <pre><code>&lt;audio controls src="music.mp3"&gt;&lt;/audio&gt;
+
+&lt;video controls width="640" src="video.mp4"&gt;&lt;/video&gt;</code></pre>
+    </section>
+
+    <section id="forms">
+      <h2>5. Forms</h2>
+      <p>Forms collect information from users.</p>
+      <pre><code>&lt;form&gt;
+  &lt;label for="name"&gt;Name&lt;/label&gt;
+  &lt;input id="name" name="name" type="text"&gt;
+
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input id="email" name="email" type="email"&gt;
+
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+      <h3>Useful input types</h3>
+      <p><code>text</code>, <code>email</code>, <code>password</code>, <code>number</code>, <code>date</code>, <code>checkbox</code>, <code>radio</code>, and <code>file</code>.</p>
+    </section>
+
+    <section id="css">
+      <h2>6. CSS Fundamentals</h2>
+      <p>A CSS rule has a selector and declarations.</p>
+      <pre><code>p {
+  color: navy;
+  font-size: 18px;
+}</code></pre>
+
+      <h3>Selectors</h3>
+      <pre><code>/* Element selector */
+p { color: blue; }
+
+/* Class selector */
+.card { padding: 20px; }
+
+/* ID selector */
+#main-title { font-size: 40px; }
+
+/* Multiple selectors */
+h1, h2 { font-family: sans-serif; }</code></pre>
+
+      <h3>Connecting CSS to HTML</h3>
+      <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+
+      <h3>Colors and typography</h3>
+      <pre><code>body {
+  background: #f5f5f5;
+  color: #222;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}</code></pre>
+    </section>
+
+    <section id="layout">
+      <h2>7. The CSS Box Model</h2>
+      <p>Every element can be thought of as a box consisting of content, padding, border, and margin.</p>
+      <pre><code>.box {
+  width: 300px;
+  padding: 20px;
+  border: 2px solid black;
+  margin: 30px;
+}</code></pre>
+
+      <h3>Flexbox</h3>
+      <p>Flexbox is useful for arranging items in one dimension: a row or a column.</p>
+      <pre><code>.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}</code></pre>
+
+      <div class="demo">
+        <div style="display:flex;justify-content:space-between;gap:10px;">
+          <div style="padding:15px;background:#dbeafe;">One</div>
+          <div style="padding:15px;background:#ede9fe;">Two</div>
+          <div style="padding:15px;background:#dcfce7;">Three</div>
+        </div>
+      </div>
+
+      <h3>CSS Grid</h3>
+      <p>Grid is especially useful for two-dimensional layouts.</p>
+      <pre><code>.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}</code></pre>
+    </section>
+
+    <section id="responsive">
+      <h2>8. Responsive Design</h2>
+      <p>Responsive design lets a page adapt to different screen sizes.</p>
+      <pre><code>/* Default styles */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Smaller screens */
+@media (max-width: 700px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}</code></pre>
+
+      <p>The viewport meta tag is also important on mobile devices:</p>
+      <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+    </section>
+
+    <section id="practice">
+      <h2>9. Practice Project</h2>
+      <p>Build a simple personal profile page using the concepts in this guide.</p>
+      <ol>
+        <li>Create an HTML document.</li>
+        <li>Add a header with your name.</li>
+        <li>Add an image with useful alternative text.</li>
+        <li>Write a short introduction.</li>
+        <li>Create a list of hobbies or skills.</li>
+        <li>Add links to a few websites.</li>
+        <li>Use CSS to change colors, spacing, fonts, and layout.</li>
+        <li>Use Flexbox or Grid for at least one section.</li>
+        <li>Add a media query so the page works well on a small screen.</li>
+      </ol>
+
+      <h3>Mini challenge</h3>
+      <pre><code>&lt;!-- Build this structure yourself --&gt;
+&lt;header&gt;
+  &lt;h1&gt;Your Name&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;section&gt;
+    &lt;h2&gt;About Me&lt;/h2&gt;
+    &lt;p&gt;...&lt;/p&gt;
+  &lt;/section&gt;
+
+  &lt;section&gt;
+    &lt;h2&gt;My Skills&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;...&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+
+      <div class="tip"><strong>Learning path:</strong> Learn HTML structure first, then basic CSS, then the box model, Flexbox, Grid, responsive design, and finally JavaScript.</div>
+    </section>
+
+    <section>
+      <h2>10. Quick Reference</h2>
+      <div class="grid">
+        <div class="card"><strong>HTML structure</strong><br><code>html, head, body, main, section</code></div>
+        <div class="card"><strong>Text</strong><br><code>h1-h6, p, strong, em</code></div>
+        <div class="card"><strong>Content</strong><br><code>a, img, audio, video</code></div>
+        <div class="card"><strong>Forms</strong><br><code>form, label, input, button</code></div>
+        <div class="card"><strong>CSS</strong><br><code>color, background, font-size, margin, padding</code></div>
+        <div class="card"><strong>Layout</strong><br><code>display: flex; display: grid;</code></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    HTML & CSS Documentation — a self-contained beginner reference.
+  </footer>
+</body>
+</html>
